@@ -1,7 +1,29 @@
 <main class="flex flex-col py-8 px-12">
-  <h1 class="text-3xl font-bold">
-    Hello Standalone Components demo app!
-  </h1>
-  <p class="my-6">This is the home page!</p>
+  <h1 class="text-3xl font-bold">Hello Standalone Components demo app!</h1>
+  <section class="my-6">
+    <router-outlet></router-outlet>
+  </section>
+  <nav>
+    <ul>
+      <li>
+        <a
+          routerLink="/"
+          routerLinkActive="text-blue-500 underline"
+          ariaCurrentWhenActive="page"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/about"
+          routerLinkActive="text-blue-500 underline"
+          ariaCurrentWhenActive="page"
+        >
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
 </main>
-
