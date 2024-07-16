@@ -15,6 +15,11 @@ export const routes: Routes = [
     title: 'About',
   },
   {
+    path: 'flowers',
+    loadComponent: () => import('./pages/flowers.component'),
+    title: 'Flowers'
+  },
+  {
     path: '**',
     redirectTo: '',
   },
