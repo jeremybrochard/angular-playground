@@ -5,9 +5,17 @@
 
     <div class="flex flex-col gap-2">
       <label class="font-semibold" [class.text-red-500]="isInvalid(firstNameControl)" for="firstName">First Name<span>*</span></label>
-      <input [(ngModel)]="firstName" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="text" name="firstName" id="firstName" required #firstNameControl="ngModel">
+      <input [(ngModel)]="firstName" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="text" name="firstName" id="firstName" required [appForbiddenName]="forbiddenName" #firstNameControl="ngModel">
       <div *ngIf="isInvalid(firstNameControl)" class="text-red-500">
-        First name is mandatory.
+
+        @if (firstNameControl.hasError('required')) {
+          First name is mandatory.
+        }
+
+        @if (firstNameControl.hasError('forbiddenName')) {
+          The name '{{ forbiddenName }}' is forbidden.
+        }
+
       </div>
     </div>
 
@@ -17,8 +25,11 @@
     </div>
 
     <div class="flex flex-col gap-2">
-      <label class="font-semibold" for="email">Email</label>
-      <input [(ngModel)]="email" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="email" name="email" id="email">
+      <label class="font-semibold" for="email" [class.text-red-500]="isInvalid(emailControl)">Email</label>
+      <input [(ngModel)]="email" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="email" name="email" id="email" email #emailControl="ngModel">
+      <div *ngIf="isInvalid(emailControl)" class="text-red-500">
+        Wrong email entered.
+      </div>
     </div>
 
     <div class="flex flex-col gap-2">

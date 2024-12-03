@@ -1,6 +1,7 @@
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
+import { ForbiddenNameDirective } from '../../core/forbidden-name.directive';
 
 export interface ContactForm {
   firstName: string;
@@ -12,11 +13,13 @@ export interface ContactForm {
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, JsonPipe],
+  imports: [CommonModule, FormsModule, JsonPipe, ForbiddenNameDirective],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
 export class ContactFormComponent {
+  readonly forbiddenName = 'Toto';
+
   firstName = '';
   lastName = '';
   email = '';
