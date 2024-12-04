@@ -1,8 +1,8 @@
 import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
-import { ForbiddenNameDirective } from '../../core/forbidden-name.directive';
-import { FakeAsyncDirective } from '../../core/fake-async.directive';
+import { FakeAsyncDirective } from '../../core/validators/fake-async.directive';
+import { ForbiddenNameDirective } from '../../core/validators/forbidden-name.directive';
 
 export interface ContactForm {
   firstName: string;
