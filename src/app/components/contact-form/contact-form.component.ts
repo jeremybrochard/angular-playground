@@ -2,6 +2,7 @@ import { CommonModule, JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { ForbiddenNameDirective } from '../../core/forbidden-name.directive';
+import { FakeAsyncDirective } from '../../core/fake-async.directive';
 
 export interface ContactForm {
   firstName: string;
@@ -13,7 +14,7 @@ export interface ContactForm {
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, JsonPipe, ForbiddenNameDirective],
+  imports: [CommonModule, FormsModule, JsonPipe, ForbiddenNameDirective, FakeAsyncDirective],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })

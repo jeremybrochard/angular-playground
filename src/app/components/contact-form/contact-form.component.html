@@ -5,8 +5,15 @@
 
     <div class="flex flex-col gap-2">
       <label class="font-semibold" [class.text-red-500]="isInvalid(firstNameControl)" for="firstName">First Name<span>*</span></label>
-      <input [(ngModel)]="firstName" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="text" name="firstName" id="firstName" required [appForbiddenName]="forbiddenName" #firstNameControl="ngModel">
+      <input [(ngModel)]="firstName" class="ring-1 ring-gray-600 rounded hover:ring-green-900 hover:ring-2" type="text" name="firstName" id="firstName" required [appForbiddenName]="forbiddenName" appFakeAsync #firstNameControl="ngModel">
+      <div *ngIf="firstNameControl.status === 'PENDING'">
+        Pending async validation!!
+      </div>
       <div *ngIf="isInvalid(firstNameControl)" class="text-red-500">
+
+        @if (firstNameControl.hasError('fakeAsync')) {
+          Fake async error triggered!
+        }
 
         @if (firstNameControl.hasError('required')) {
           First name is mandatory.
