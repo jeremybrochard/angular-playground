@@ -1,0 +1,19 @@
+<section class="flex flex-col gap-6">
+  <h2 class="font-bold text-2xl">My test counter</h2>
+  <div class="flex flex-col gap-6">
+    <div class="flex flex-row gap-6 items-center">
+      <label for="counter">Counter value</label>
+      <input class="ring-1 ring-gray-600 rounded py-1 px-2" [(ngModel)]="counter" type="number" name="counter" id="counter">
+    </div>
+    <div class="flex flex-row gap-6 items-center">
+      <label for="maxValue">Max counter value</label>
+      <input class="ring-1 ring-gray-600 rounded py-1 px-2" [(ngModel)]="maxValue" type="number" name="maxValue" id="maxValue">
+    </div>
+    <p class="font-bold">Counter value is {{ counter }}</p>
+    <div class="flex flex-row gap-6">
+      <button class="bg-green-900 text-white px-12 py-2 rounded-lg font-semibold hover:bg-green-700" (click)="increment()">Increment</button>
+      <button class="bg-green-900 text-white px-12 py-2 rounded-lg font-semibold hover:bg-green-700" (click)="decrement()">Decrement</button>
+      <button class="bg-green-900 text-white px-12 py-2 rounded-lg font-semibold hover:bg-green-700" (click)="stop()">Stop</button>
+    </div>
+  </div>
+</section>
